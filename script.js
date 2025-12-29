@@ -21,7 +21,7 @@ const taskbox = document.getElementById('taskbox');
 const datebox = document.getElementById('datebox');
 const timebox = document.getElementById('timebox');
 const taskstatus = document.querySelector('.taskstatus');
-let count = 1;
+let count = 0;
 let comp = 0;
 
 
@@ -35,9 +35,9 @@ function update() {
     div.setAttribute('class', 'taskcard')
     div.innerHTML = `<div class="inner-taskcard1">
             <input type="checkbox" style="width: 20px; height: 20px; position: relative; top: 10px;" onclick="completedtask(event)">
-            <h3 style="display: inline-block; margin-left: 20px;" id="outputtask">${taskbox.value}</h3><br>
-            <p style="display: inline-block; margin-left: 45px; color: gray;" id="outputdate">${datebox.value}</p>
-            <p style="display: inline-block; color: gray;" id="outputtime">${timebox.value}</p>
+            <h3 style="display: inline-block; margin-left: 20px;">${taskbox.value}</h3><br>
+            <p style="display: inline-block; margin-left: 45px; color: gray;" >${datebox.value}</p>
+            <p style="display: inline-block; color: gray;">${timebox.value}</p>
             <p class="statustext" style="margin-left: 20px;"></p>
         </div>
         <div class="inner-taskcard2" style="position: relative; top: 10px; " onclick="deletingcards(event)"><i class="fa-solid fa-trash"></i></div>
@@ -56,12 +56,6 @@ function update() {
     taskstatus.innerHTML = `<p>${count} Tasks | </p>
         <p> ${comp} Completed</p>`
 }
-overlay.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-        update();
-    }
-})
-
 
 /* function for deleting a task */
 function deletingcards(event) {
@@ -115,12 +109,10 @@ function completedtask(event) {
         statustext.innerHTML = "";
     }
 }
-
-
-document.addEventListener('keydown', (event) => {
-    if (event.key == "Enter") {
-        overlayback.style.display = "block";
-        overlay.style.display = "block";
+document.addEventListener('keydown',(event)=>{
+     if (event.key === "Enter") {
+     overlayback.style.display = "block";
+    overlay.style.display = "block";
     }
 })
 
