@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&family=Poppins&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="logo.jpeg">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navcontainer">
+        <div class="logo"><i class="fa-etch fa-solid fa-check"></i></i></div>
+        <div class="navbar" style="display: flex;">
+            <h1 style="margin-left: 20px; color: white; margin-top: 5px;">Task</h1>
+            <h1 style="color: #0a66fa; margin-top: 5px;">Master</h1>
+        </div>
+    </div>
+
+    <!-- addbutton -->
+    <div class="addbtn" id="openoverlay">
+        <button>+</button>
+    </div>
+
+    <!-- overlay -->
+    <div class="overlayback"></div>
+
+    <!-- overlay-task-inputbox -->
+    <div class="overlay">
+        <h3 id="cancelbtn">X</h3>
+        <p>What is to be done?</p>
+        <input type="text" placeholder="Enter the task" id="taskbox">
+        <p>Due Date</p>
+        <input type="date" placeholder="Enter the due date" id="datebox">
+        <p>Timings</p>
+        <input type="time" placeholder="Enter the time of a task" id="timebox">
+        <div><button id="taskaddbtn" onclick="update()"><i class="fa-etch fa-solid fa-check"></i></button></div>
+    </div>
+
+    <!-- taskcard -->
+    <div class="taskcard">
+        <div class="inner-taskcard1">
+            <input type="checkbox" style="width: 20px; height: 20px; position: relative; top: 10px;" onclick="completedtask(event)">
+            <h3 style="display: inline-block; margin-left: 20px;" id="outputtask">Example Task : Studying</h3><br>
+            <p style="display: inline-block; margin-left: 45px; color: gray;" id="outputdate">Date </p>
+            <p style="display: inline-block; color: gray;" id="outputtime"> | Time</p>
+            <p class="statustext" style="margin-left: 30px;"></p>
+        </div>
+        <div class="inner-taskcard2" style="position: relative; top: 10px;"><i class="fa-solid fa-trash"></i></div>
+    </div>
+
+   <!-- taskstatus -->
+    <div class="taskstatus">
+        <p>1 Tasks . </p>
+        <p>  0 Completed</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
